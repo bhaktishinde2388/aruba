@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import InputBoxs from '../../components/InputBoxs/InputBoxs.jsx'
+import Button from "../../components/Button/Button.jsx"
 
 function Signup() {
   const [gender, setGender] = useState("");
@@ -31,7 +32,8 @@ function Signup() {
       </div>
       <InputBoxs type="password" placeholder="Enter password"/>
       <InputBoxs type="password" placeholder="Confirm Password"/>
-
+  
+       <Button text="Signup"/>
     </div>
     
   )
