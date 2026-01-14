@@ -34,6 +34,13 @@ function Signup() {
       <InputBoxs type="password" placeholder="Confirm Password"/>
   
        <Button text="Signup"/>
+       
+       <p className="nav-text">
+        Already have an account?{' '}
+        <span className="nav-link" onClick={goToLogin}>
+          Login
+        </span>
+      </p>
     </div>
     
   )
