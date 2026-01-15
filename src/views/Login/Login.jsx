@@ -10,6 +10,7 @@ function Login() {
 
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [loginError, setLoginError] = useState("");
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -18,6 +19,7 @@ function Login() {
 
     setEmailError("");
     setPasswordError("");
+    setLoginError("");
 
     let isValid = true;
 
@@ -33,9 +35,18 @@ function Login() {
     }
 
     if (isValid) {
-      alert("Login validation passed");
+       const users = JSON.parse(localStorage.getItem("users")) || [];
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (user) {
+      alert(`Login successful! Welcome, ${user.name}`);
       setEmail("");
       setPassword("");
+
+      navigate("/");
+      } else {
+        setLoginError("Invalid email or password");
+      }
      
     }
   }
@@ -51,7 +62,7 @@ function Login() {
 
         <InputBoxs placeholder="Password" type="password" value={password}onChange={(e) => setPassword(e.target.value)} error={passwordError}/>
        
-
+      {loginError && <p style={{color: 'red'}}>{loginError}</p>}
         <Button type="submit"  text="Login" />
       </form>
 
