@@ -3,21 +3,28 @@ import InputBoxs from '../../components/InputBoxs/InputBoxs.jsx'
 import Button from "../../components/Button/Button.jsx"
 import { Link } from 'react-router-dom';
 import Login from '../Login/Login.jsx';
-import { use } from 'react';
+
 
 function Signup() {
   const [name, setName] = useState("");
   const [email,setEmail] = useState("");
   const [contact,setContact] = useState("");
+  const [password,setPassword]=useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [gender, setGender] = useState("");
+
 
   const [nameError, setNameError] = useState("");
   const [emailError,setEmailError] = useState("");
   const [contactError,setContactError] = useState("");
+  const [passwordError,setPasswordError] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   const nameRegex = /^[A-Za-z ]{3,}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const contactRegex = /^[6-9]\d{9}$/;
+  const passwordRegex =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
 
 
   const signupValidation = (e) => {
@@ -26,6 +33,8 @@ function Signup() {
     setNameError("");
     setEmailError("");
     setContactError("");
+    setPasswordError("");
+    setConfirmPasswordError("");
 
     let isValid = true;
 
@@ -42,6 +51,17 @@ function Signup() {
       isValid = false;
     }
 
+    if (!passwordRegex.test(password)) {
+      setPasswordError(
+        "Password must be 8+ chars, include uppercase, lowercase, number & special character"
+      );
+      isValid = false;
+    }
+
+    if (password !== confirmPassword) {
+      setConfirmPasswordError("Passwords not match");
+      isValid = false;
+    }
 
      if (isValid) {
       alert("Signup validation passed ✅");
@@ -76,8 +96,8 @@ function Signup() {
             /> Female
           </label>
         </div>
-        <InputBoxs type="password" placeholder="Enter password" />
-        <InputBoxs type="password" placeholder="Confirm Password" />
+        <InputBoxs type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)}error={passwordError}/>
+        <InputBoxs type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}error={confirmPasswordError} />
 
         <Button type="submit" text="Signup" />
       </form>
