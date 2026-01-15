@@ -53,7 +53,7 @@ function Signup() {
 
     if (!passwordRegex.test(password)) {
       setPasswordError(
-        "Password must be 8+ chars, include uppercase, lowercase, number & special character"
+        "Password must be 8+ chars, include uppercase, lowercase, number & special character e.g (Password@1)"
       );
       isValid = false;
     }
