@@ -90,13 +90,6 @@ const navigate = useNavigate();
 
       alert("Signup successful!");
       
-      setName("");
-      setEmail("");
-      setContact("");
-      setPassword("");
-      setConfirmPassword("");
-      setGender("");
-
       navigate("/login");
     }
 

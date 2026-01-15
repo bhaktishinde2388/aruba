@@ -46,6 +46,7 @@ function Login() {
       setPassword("");
 
       navigate("/home");
+      
       } else {
         setLoginError("Invalid email or password");
       }
