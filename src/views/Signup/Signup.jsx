@@ -97,7 +97,7 @@ const navigate = useNavigate();
       setConfirmPassword("");
       setGender("");
 
-      navigate("/");
+      navigate("/login");
     }
 
   }
@@ -138,7 +138,7 @@ const navigate = useNavigate();
         </form>
       <p className="login-link">
           Already have an account?{" "}
-          <Link to="/">login on existing account</Link>
+          <Link to="/login">login on existing account</Link>
         </p>
 
       </div>

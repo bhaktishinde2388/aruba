@@ -1,10 +1,12 @@
 import React,{useState} from 'react'
 import InputBoxs from '../../components/InputBoxs/InputBoxs'
 import Button from '../../components/Button/Button'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate} from 'react-router-dom'
 import "./Login.css"
 
 function Login() {
+  const navigate = useNavigate();
+
    const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -43,7 +45,7 @@ function Login() {
       setEmail("");
       setPassword("");
 
-      navigate("/");
+      navigate("/home");
       } else {
         setLoginError("Invalid email or password");
       }
