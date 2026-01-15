@@ -4,8 +4,6 @@ import Button from "../../components/Button/Button.jsx"
 import { Link } from 'react-router-dom';
 import Login from '../Login/Login.jsx';
 import "./Signup.css"
-
-
 function Signup() {
   const [name, setName] = useState("");
   const [email,setEmail] = useState("");
@@ -13,8 +11,6 @@ function Signup() {
   const [password,setPassword]=useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [gender, setGender] = useState("");
-
-
   const [nameError, setNameError] = useState("");
   const [emailError,setEmailError] = useState("");
   const [contactError,setContactError] = useState("");
@@ -63,52 +59,59 @@ function Signup() {
       isValid = false;
     }
 
-     if (isValid) {
+    if (isValid) {
       alert("Signup validation passed..");
+
+      setName("");
+      setEmail("");
+      setContact("");
+      setPassword("");
+      setConfirmPassword("");
+      setGender("");
     }
-    
+
   }
 
   return (
     <div className="signup-conatiner">
-     <div className="signup-card">
-      <h2 className="signup-title">Create Account</h2>
-      <form onSubmit={signupValidation}>
-        <InputBoxs type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} error={nameError} />
-        <InputBoxs type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)} error={emailError}/>
-        <InputBoxs type="text" placeholder="Enter Contact Number" value={contact}  onChange={(e)=>setContact(e.target.value)} error={contactError} />
-         <div className="gender-conatiner">
-          <label>
-            <input
-              type="radio"
-              name="gender"
-              value="male"
-              checked={gender === "male"}
-              onChange={(e) => setGender(e.target.value)}
-            /> Male
-          </label>
+      <div className="signup-card">
+        <h2 className="signup-title">Create Account</h2>
+        <form onSubmit={signupValidation}>
+          <InputBoxs type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} error={nameError} />
+          <InputBoxs type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)} error={emailError}/>
+          <InputBoxs type="text" placeholder="Enter Contact Number" value={contact}  onChange={(e)=>setContact(e.target.value)} error={contactError} />
+          <div className="gender-conatiner">
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="male"
+                checked={gender === "male"}
+                onChange={(e) => setGender(e.target.value)}
+              /> Male
+            </label>
 
-          <label >
-            <input
-              type="radio"
-              name="gender"
-              value="female"
-              checked={gender === "female"}
-              onChange={(e) => setGender(e.target.value)}
-            /> Female
-          </label>
-        </div>
-        <InputBoxs type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)}error={passwordError}/>
-        <InputBoxs type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}error={confirmPasswordError} />
+            <label >
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                checked={gender === "female"}
+                onChange={(e) => setGender(e.target.value)}
+              /> Female
+            </label>
+          </div>
+          <InputBoxs type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)}error={passwordError}/>
+          <InputBoxs type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}error={confirmPasswordError} />
 
-        <Button type="submit" text="Signup" />
-      </form>
+          <Button type="submit" text="Signup" />
+        </form>
       <p className="login-link">
-        Already have an account?{" "}
-        <Link to="/login">login on existing account</Link>
-      </p>
+          Already have an account?{" "}
+          <Link to="/login">login on existing account</Link>
+        </p>
 
-    </div>
+      </div>
     </div>
 
   )
