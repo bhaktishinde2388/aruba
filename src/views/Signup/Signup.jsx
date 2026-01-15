@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import InputBoxs from '../../components/InputBoxs/InputBoxs.jsx'
 import Button from "../../components/Button/Button.jsx"
+import { Link } from 'react-router-dom';
+import Login from '../Login/Login.jsx';
 
 function Signup() {
   const [gender, setGender] = useState("");
@@ -35,11 +37,9 @@ function Signup() {
   
        <Button text="Signup"/>
        
-       <p className="nav-text">
-        Already have an account?{' '}
-        <span className="nav-link" onClick={goToLogin}>
-          Login
-        </span>
+    <p>
+        Already have an account?{" "}
+        <Link to="/login">login on existing account</Link>
       </p>
     </div>
     

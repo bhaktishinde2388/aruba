@@ -1,16 +1,14 @@
-import React,{useState} from 'react'
+import { Routes, Route } from "react-router-dom";
 import Signup from './views/Signup/Signup.jsx'
 import Login from './views/Login/Login.jsx'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('login');
   return (
      <>
-      {currentPage === 'login' ? (
-        <Login goToSignup={() => setCurrentPage('signup')} />
-      ) : (
-        <Signup goToLogin={() => setCurrentPage('login')} />
-      )}
+ <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+    </Routes>
     </>
   )
 }
