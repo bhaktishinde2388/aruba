@@ -31,7 +31,7 @@
   justify-content: space-around;
   margin: 10px 0 15px;
   padding: 10px;
-  background-color: #fef3c7; 
+  background-color: #fdf1b4; 
   border-radius: 8px;
 }
 
@@ -44,7 +44,7 @@
 button {
   width: 100%;
   margin-top: 10px;
-  background-color: #ec4899; 
+  background-color: #184c06; 
   color: white;
   border: none;
   padding: 10px;

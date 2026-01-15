@@ -78,7 +78,7 @@ function Signup() {
         <InputBoxs type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} error={nameError} />
         <InputBoxs type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)} error={emailError}/>
         <InputBoxs type="text" placeholder="Enter Contact Number" value={contact}  onChange={(e)=>setContact(e.target.value)} error={contactError} />
-         <div className="gender-container">
+         <div className="gender-conatiner">
           <label>
             <input
               type="radio"
@@ -89,7 +89,7 @@ function Signup() {
             /> Male
           </label>
 
-          <label style={{ marginLeft: "10px" }}>
+          <label >
             <input
               type="radio"
               name="gender"
