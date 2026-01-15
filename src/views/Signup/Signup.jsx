@@ -24,7 +24,7 @@ function Signup() {
   const nameRegex = /^[A-Za-z ]{3,}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const contactRegex = /^[6-9]\d{9}$/;
-  const passwordRegex =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
 
 
 
@@ -54,8 +54,7 @@ function Signup() {
 
     if (!passwordRegex.test(password)) {
       setPasswordError(
-        "Password must be 8+ chars, include uppercase, lowercase, number & special character e.g (Password@1)"
-      );
+        "Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character." );
       isValid = false;
     }
 
