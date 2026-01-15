@@ -1,5 +1,26 @@
-.input-box
-{
-   width: 100%;
-   padding: 10px; 
+.input-box {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #cbd5e1;
+  font-size: 15px;
+  outline: none;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-box::placeholder {
+  color: #94a3b8;
+}
+
+.input-box:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.input-error {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 4px;
 }

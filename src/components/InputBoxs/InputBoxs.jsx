@@ -13,7 +13,7 @@ function InputBoxs({type,value,placeholder,onChange,error}) {
       
       />
            {error && (
-        <p style={{ color: "red", fontSize: "12px" }}>
+        <p className="input-error">
           {error}
         </p>
       )}
