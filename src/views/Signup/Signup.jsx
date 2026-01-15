@@ -4,6 +4,7 @@ import Button from "../../components/Button/Button.jsx"
 import { Link , useNavigate} from 'react-router-dom';
 import Login from '../Login/Login.jsx';
 import "./Signup.css"
+import toast from 'react-hot-toast';
 
 
 function Signup() {
@@ -88,7 +89,7 @@ const navigate = useNavigate();
       existingUsers.push(newUser);
       localStorage.setItem("users", JSON.stringify(existingUsers));
 
-      alert("Signup successful!");
+     toast.success("Signup successful!");
       
       navigate("/login");
     }

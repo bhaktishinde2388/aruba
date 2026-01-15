@@ -3,6 +3,7 @@ import InputBoxs from '../../components/InputBoxs/InputBoxs'
 import Button from '../../components/Button/Button'
 import { Link , useNavigate} from 'react-router-dom'
 import "./Login.css"
+import toast from 'react-hot-toast';
 
 function Login() {
   const navigate = useNavigate();
@@ -41,12 +42,12 @@ function Login() {
       const user = users.find(u => u.email === email && u.password === password);
 
       if (user) {
-      alert(`Login successful! Welcome, ${user.name}`);
+       toast.success(`Login successful! Welcome, ${user.name}`);
       setEmail("");
       setPassword("");
 
       navigate("/home");
-      
+
       } else {
         setLoginError("Invalid email or password");
       }
