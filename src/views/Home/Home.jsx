@@ -13,26 +13,42 @@ function Home() {
     }
   }, []);
 
+    const logout = () => {
+    localStorage.removeItem("lastLoginUser");
+    window.location.reload();
+  };
+
+  
   return (
-    <div className="home-container">
-      <div className="home-card">
-        {userName ? (
-          <h2 className="greeting">Hello, {userName}! 👋</h2>
-        ) : (
-          <>
-            <h2 className="home-title">Welcome!</h2>
-            <div className="home-buttons">
+<div className="home-container">
+  <div className="home-card">
+
+    <h2 className="home-title">
+      {userName ? `Hello, ${userName} 👋` : "Welcome!"}
+    </h2>
+
+    <p className="home-subtitle">
+      {userName ? "You are logged in successfully" : "Please login or create an account"}
+    </p>
+
+    <div className="home-buttons">
+          {userName ? (
+            <Button text="Logout" onClick={logout} />
+          ) : (
+            <>
               <Link to="/login">
                 <Button text="Login" />
               </Link>
               <Link to="/signup">
                 <Button text="Signup" />
               </Link>
-            </div>
-          </>
-        )}
-      </div>
+            </>
+      )}
     </div>
+
+  </div>
+</div>
+
   );
 }
 

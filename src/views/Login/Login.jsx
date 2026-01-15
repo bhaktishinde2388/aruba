@@ -42,9 +42,10 @@ function Login() {
       const user = users.find(u => u.email === email && u.password === password);
 
       if (user) {
+        localStorage.setItem("lastLoginUser", JSON.stringify(user));
        toast.success(`Login successful! Welcome, ${user.name}`);
-      setEmail("");
-      setPassword("");
+      // setEmail("");
+      // setPassword("");
 
       navigate("/home");
 
