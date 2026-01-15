@@ -34,6 +34,9 @@ function Login() {
 
     if (isValid) {
       alert("Login validation passed");
+      setEmail("");
+      setPassword("");
+     
     }
   }
   return (
