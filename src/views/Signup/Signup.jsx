@@ -3,6 +3,7 @@ import InputBoxs from '../../components/InputBoxs/InputBoxs.jsx'
 import Button from "../../components/Button/Button.jsx"
 import { Link } from 'react-router-dom';
 import Login from '../Login/Login.jsx';
+import "./Signup.css"
 
 
 function Signup() {
@@ -70,12 +71,12 @@ function Signup() {
   }
 
   return (
-    <div>Signup
+    <div className="signup-conatiner">Signup
       <form onSubmit={signupValidation}>
         <InputBoxs type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} error={nameError} />
         <InputBoxs type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)} error={emailError}/>
         <InputBoxs type="text" placeholder="Enter Contact Number" value={contact}  onChange={(e)=>setContact(e.target.value)} error={contactError} />
-        <div>
+         <div className="gender-container">
           <label>
             <input
               type="radio"

@@ -1,0 +1,55 @@
+
+.signup-conatiner {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #dbeafe, #fce7f3);
+  font-family: Arial, sans-serif;
+}
+.gender-conatiner {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0 15px;
+  padding: 10px;
+  background-color: #fef3c7; 
+  border-radius: 8px;
+}
+
+.gender-container label {
+  font-weight: 500;
+  color: #92400e;
+}
+
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  background-color: #ec4899; 
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #db2777;
+}
+
+
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-link a {
+  color: #3b82f6;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
