@@ -7,14 +7,17 @@ import { use } from 'react';
 
 function Signup() {
   const [name, setName] = useState("");
-  const [email,setEmail] = useState("")
+  const [email,setEmail] = useState("");
+  const [contact,setContact] = useState("");
   const [gender, setGender] = useState("");
 
   const [nameError, setNameError] = useState("");
-  const [emailError,setEmailError] = useState("")
+  const [emailError,setEmailError] = useState("");
+  const [contactError,setContactError] = useState("");
 
   const nameRegex = /^[A-Za-z ]{3,}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const contactRegex = /^[6-9]\d{9}$/;
 
 
   const signupValidation = (e) => {
@@ -22,6 +25,7 @@ function Signup() {
 
     setNameError("");
     setEmailError("");
+    setContactError("");
 
     let isValid = true;
 
@@ -33,6 +37,11 @@ function Signup() {
       setEmailError("Enter a valid email address");
       isValid = false;
     }
+    if(!contactRegex.test(contact)){
+      setContactError("Enter Valid contact number");
+      isValid = false;
+    }
+
 
      if (isValid) {
       alert("Signup validation passed ✅");
@@ -45,7 +54,7 @@ function Signup() {
       <form onSubmit={signupValidation}>
         <InputBoxs type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} error={nameError} />
         <InputBoxs type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)} error={emailError}/>
-        <InputBoxs type="number" placeholder="Enter Contact Number" />
+        <InputBoxs type="text" placeholder="Enter Contact Number" value={contact}  onChange={(e)=>setContact(e.target.value)} error={contactError} />
         <div>
           <label>
             <input
