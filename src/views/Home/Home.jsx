@@ -4,6 +4,7 @@ import Button from '../../components/Button/Button';
 import "./Home.css";
 
 function Home() {
+    
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
@@ -15,7 +16,7 @@ function Home() {
 
     const logout = () => {
     localStorage.removeItem("lastLoginUser");
-    window.location.reload();
+    setUserName(""); 
   };
 
   

@@ -37,6 +37,38 @@ It includes:
 - `Button.jsx` – reusable button component
 
 ---
+## ✨ Additional Functionalities (Beyond Assignment)
+
+### Home Page
+- Displays **Login & Signup buttons** for unauthenticated users
+- Displays **personalized greeting with logged-in user’s name** after login
+- UI styling consistent with Login & Signup pages
+
+### Client-side Authentication (localStorage)
+- User data stored in `localStorage` on signup
+- Logged-in user stored as `lastLoginUser`
+- Authentication state persists on page refresh
+
+### Conditional UI Rendering
+- UI updates based on authentication state
+- Logged-in users see:
+  - Greeting message
+  - Logout button
+- Logged-out users see:
+  - Login & Signup buttons
+
+### Logout Functionality
+- Clears logged-in user data from `localStorage`
+- Redirects user back to Home page
+
+### Toast Notifications
+- Success toast on:
+  - Successful signup
+  - Successful login
+- Clean, centered toast notifications using `react-hot-toast`
+
+---
+
 
 ## Tech Stack
 
