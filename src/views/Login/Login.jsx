@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import InputBoxs from '../../components/InputBoxs/InputBoxs'
 import Button from '../../components/Button/Button'
 import { Link } from 'react-router-dom'
+import "./Login.css"
 
 function Login() {
    const [email, setEmail] = useState("");
@@ -36,8 +37,9 @@ function Login() {
     }
   }
   return (
-     <div className="container">
-      <h2>Login</h2>
+     <div className="login-container">
+    <div className="login-card">
+      <h2 className="login-title">Welcome Back</h2>
 
       <form onSubmit={loginValidation}>
         <InputBoxs placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)}
@@ -51,10 +53,11 @@ function Login() {
       </form>
 
      
-       <p>
+       <p className="signup-link">
         Don’t have an account?{" "}
         <Link to="/signup">Create new account</Link>
       </p>
+    </div>
     </div>
   )
 }
