@@ -65,13 +65,15 @@ function Signup() {
     }
 
      if (isValid) {
-      alert("Signup validation passed ✅");
+      alert("Signup validation passed..");
     }
     
   }
 
   return (
-    <div className="signup-conatiner">Signup
+    <div className="signup-conatiner">
+     <div className="signup-card">
+      <h2 className="signup-title">Create Account</h2>
       <form onSubmit={signupValidation}>
         <InputBoxs type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} error={nameError} />
         <InputBoxs type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)} error={emailError}/>
@@ -107,6 +109,7 @@ function Signup() {
         <Link to="/login">login on existing account</Link>
       </p>
 
+    </div>
     </div>
 
   )
