@@ -1,16 +1,23 @@
 import React, { useState } from 'react'
 import InputBoxs from '../../components/InputBoxs/InputBoxs.jsx'
 import Button from "../../components/Button/Button.jsx"
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import Login from '../Login/Login.jsx';
 import "./Signup.css"
+
+
 function Signup() {
+
+const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email,setEmail] = useState("");
   const [contact,setContact] = useState("");
   const [password,setPassword]=useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [gender, setGender] = useState("");
+
+
   const [nameError, setNameError] = useState("");
   const [emailError,setEmailError] = useState("");
   const [contactError,setContactError] = useState("");
@@ -25,7 +32,7 @@ function Signup() {
 
 
   const signupValidation = (e) => {
-    e.preventDefault();
+    e.preventDefault();  
 
     setNameError("");
     setEmailError("");
@@ -60,14 +67,37 @@ function Signup() {
     }
 
     if (isValid) {
-      alert("Signup validation passed..");
+      const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
+      // for check email already exists
+      const isEmailTaken = existingUsers.some(user => user.email === email);
+      if(isEmailTaken){
+        setEmailError("This email is alreadyy registered");
+        return;
+        
+      }
+
+      // for new user
+      const newUser = {
+        name,
+        email,
+        contact,
+        gender,
+        password,
+      };
+      existingUsers.push(newUser);
+      localStorage.setItem("users", JSON.stringify(existingUsers));
+
+      alert("Signup successful!");
+      
       setName("");
       setEmail("");
       setContact("");
       setPassword("");
       setConfirmPassword("");
       setGender("");
+
+      navigate("/");
     }
 
   }
